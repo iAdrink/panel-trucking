@@ -1,0 +1,328 @@
+{
+ "actualizado": "2026-11-04T08:45+00:00",
+ "kpis": {
+  "enviables": 1934,
+  "dudosos": 180,
+  "descartados": 25,
+  "programados": 927,
+  "enviados": 582,
+  "aperturas": 242,
+  "tasa_apertura": 0.41580756013745707,
+  "rebotes": 12,
+  "tasa_rebote": 0.020618556701030927,
+  "respuestas": 0
+ },
+ "proximo": {
+  "fecha": "2026-11-05",
+  "campanas": 2,
+  "contactos": 50
+ },
+ "por_dia": [
+  {
+   "fecha": "2026-11-05",
+   "contactos": 50
+  },
+  {
+   "fecha": "2026-11-06",
+   "contactos": 100
+  },
+  {
+   "fecha": "2026-11-09",
+   "contactos": 231
+  },
+  {
+   "fecha": "2026-11-18",
+   "contactos": 300
+  },
+  {
+   "fecha": "2026-11-19",
+   "contactos": 246
+  }
+ ],
+ "leads_por_ola": [
+  {
+   "ola": "1 · Enero",
+   "Enviar": 381,
+   "Dudoso": 26,
+   "Descartado": 6
+  },
+  {
+   "ola": "2 · Febrero",
+   "Enviar": 546,
+   "Dudoso": 48,
+   "Descartado": 4
+  },
+  {
+   "ola": "3 · Marzo",
+   "Enviar": 659,
+   "Dudoso": 67,
+   "Descartado": 9
+  },
+  {
+   "ola": "4 · Abril",
+   "Enviar": 348,
+   "Dudoso": 39,
+   "Descartado": 6
+  }
+ ],
+ "ab": [
+  {
+   "version": "A · Corto",
+   "fecha": "2026-11-18",
+   "contactos": 300,
+   "enviados": null,
+   "aperturas": null,
+   "respuestas": null,
+   "resp_por_100": null
+  },
+  {
+   "version": "B · Plantilla",
+   "fecha": "2026-11-19",
+   "contactos": 246,
+   "enviados": null,
+   "aperturas": null,
+   "respuestas": null,
+   "resp_por_100": null
+  }
+ ],
+ "campanas": [
+  {
+   "campana": "Momentum Envío 1 EN 12:30",
+   "plataforma": "Momentum",
+   "ola": 0,
+   "idioma": "EN",
+   "version": "Plantilla",
+   "fecha": "2026-10-28",
+   "hora_miami": "12:30",
+   "contactos": 45,
+   "estado": "Enviada",
+   "enviados": 42,
+   "aperturas": 14,
+   "clics": null,
+   "rebotes": null,
+   "bajas": 0,
+   "respuestas": 0
+  },
+  {
+   "campana": "Momentum Envío 1 EN 7:30",
+   "plataforma": "Momentum",
+   "ola": 0,
+   "idioma": "EN",
+   "version": "Plantilla",
+   "fecha": "2026-10-28",
+   "hora_miami": "7:30",
+   "contactos": 179,
+   "estado": "Enviada",
+   "enviados": 165,
+   "aperturas": 79,
+   "clics": null,
+   "rebotes": null,
+   "bajas": 0,
+   "respuestas": 0
+  },
+  {
+   "campana": "Momentum Envío 1 ES 12:30",
+   "plataforma": "Momentum",
+   "ola": 0,
+   "idioma": "ES",
+   "version": "Plantilla",
+   "fecha": "2026-10-28",
+   "hora_miami": "12:30",
+   "contactos": 79,
+   "estado": "Enviada",
+   "enviados": 74,
+   "aperturas": 24,
+   "clics": null,
+   "rebotes": null,
+   "bajas": 0,
+   "respuestas": 0
+  },
+  {
+   "campana": "Momentum Envío 1 ES 7:30",
+   "plataforma": "Momentum",
+   "ola": 0,
+   "idioma": "ES",
+   "version": "Plantilla",
+   "fecha": "2026-10-28",
+   "hora_miami": "7:30",
+   "contactos": 314,
+   "estado": "Enviada",
+   "enviados": 301,
+   "aperturas": 125,
+   "clics": null,
+   "rebotes": null,
+   "bajas": 0,
+   "respuestas": 0
+  },
+  {
+   "campana": "CAB O1 EN L1 (5-nov)",
+   "plataforma": "Brevo",
+   "ola": 1,
+   "idioma": "EN",
+   "version": "Corto",
+   "fecha": "2026-11-05",
+   "hora_miami": "7:30",
+   "contactos": 20,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O1 ES L1 (5-nov)",
+   "plataforma": "Brevo",
+   "ola": 1,
+   "idioma": "ES",
+   "version": "Corto",
+   "fecha": "2026-11-05",
+   "hora_miami": "7:30",
+   "contactos": 30,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O1 EN L2 (6-nov)",
+   "plataforma": "Brevo",
+   "ola": 1,
+   "idioma": "EN",
+   "version": "Corto",
+   "fecha": "2026-11-06",
+   "hora_miami": "7:30",
+   "contactos": 40,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O1 ES L2 (6-nov)",
+   "plataforma": "Brevo",
+   "ola": 1,
+   "idioma": "ES",
+   "version": "Corto",
+   "fecha": "2026-11-06",
+   "hora_miami": "7:30",
+   "contactos": 60,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O1 EN L3 (9-nov)",
+   "plataforma": "Brevo",
+   "ola": 1,
+   "idioma": "EN",
+   "version": "Corto",
+   "fecha": "2026-11-09",
+   "hora_miami": "7:30",
+   "contactos": 79,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O1 ES L3 (9-nov)",
+   "plataforma": "Brevo",
+   "ola": 1,
+   "idioma": "ES",
+   "version": "Corto",
+   "fecha": "2026-11-09",
+   "hora_miami": "7:30",
+   "contactos": 152,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O2 EN L1 A-corto (18-nov)",
+   "plataforma": "Brevo",
+   "ola": 2,
+   "idioma": "EN",
+   "version": "A · Corto",
+   "fecha": "2026-11-18",
+   "hora_miami": "7:30",
+   "contactos": 108,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O2 ES L1 A-corto (18-nov)",
+   "plataforma": "Brevo",
+   "ola": 2,
+   "idioma": "ES",
+   "version": "A · Corto",
+   "fecha": "2026-11-18",
+   "hora_miami": "7:30",
+   "contactos": 192,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O2 EN L2 B-plantilla (19-nov)",
+   "plataforma": "Brevo",
+   "ola": 2,
+   "idioma": "EN",
+   "version": "B · Plantilla",
+   "fecha": "2026-11-19",
+   "hora_miami": "7:30",
+   "contactos": 89,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "CAB O2 ES L2 B-plantilla (19-nov)",
+   "plataforma": "Brevo",
+   "ola": 2,
+   "idioma": "ES",
+   "version": "B · Plantilla",
+   "fecha": "2026-11-19",
+   "hora_miami": "7:30",
+   "contactos": 157,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  }
+ ]
+}

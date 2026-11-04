@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel Trucking Pardey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: header band in Pardey navy, then a single column of tiles, two chart cards, and two tables. */
+  :root {
+    --navy: #0B2545; --gold: #E0A526;
+    --bg: #F3F5F8; --panel: #FFFFFF; --fg: #13233A; --muted: #5B6B80; --line: #DCE3EC;
+    --bar: #1F4E89; --bar2: #E0A526; --bar3: #B9C4D2; --ok: #1E7A4C; --warn: #A86A00; --bad: #B3261E;
+    --display: "Fraunces", Georgia, "Times New Roman", serif;
+    --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0A1626; --panel: #10213A; --fg: #E6ECF4; --muted: #9AABC0; --line: #24395A;
+      --bar: #6FA3E6; --bar2: #E8B54A; --bar3: #4A5D78; --ok: #5CC98F; --warn: #E8B54A; --bad: #F08A80; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body); }
+  .band { background: var(--navy); color: #fff; padding-block: 28px 24px; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+  .wrap { max-width: 1100px; margin-inline: auto; }
+  .band .eyebrow { color: var(--gold); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+  .band h1 { font-family: var(--display); font-weight: 600; font-size: clamp(26px, 4vw, 36px); margin: 4px 0 6px; text-wrap: balance; }
+  .band p { margin: 0; color: #C9D6E5; max-width: 70ch; }
+  .band p b { color: #fff; }
+  main { padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+  main .wrap { display: grid; gap: 20px; }
+  .tiles { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
+  .tile { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; }
+  .tile .lbl { font-size: 12.5px; color: var(--muted); }
+  .tile .num { font-family: var(--display); font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .tile .sub { font-size: 12.5px; color: var(--muted); }
+  .tile .sub b { color: var(--fg); font-weight: 600; }
+  .tile.first { border-top: 3px solid var(--gold); }
+  .grid2 { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 8px; min-width: 0; }
+  .card h2 { margin: 0; font-size: 17px; font-weight: 600; }
+  .note { margin: 0; font-size: 13px; color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); }
+  .legend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  svg text { fill: var(--muted); font: 12px var(--body); }
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th { text-align: left; font-weight: 500; color: var(--muted); padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .r { text-align: right; }
+  .pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; border: 1px solid currentColor; }
+  .pill.Enviada { color: var(--ok); } .pill.Programada { color: var(--warn); } .pill.Enviando { color: var(--bar); }
+  footer { font-size: 12.5px; color: var(--muted); }
+  .err { color: var(--bad); }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <div class="eyebrow">Pardey Insurance · Transporte</div>
+    <h1>Campañas de email a transportistas</h1>
+    <p id="takeaway">Cargando datos…</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <section class="tiles" aria-label="Cifras principales">
+      <div class="tile first"><span class="lbl">Leads listos para enviar</span><span class="num" id="k-env">—</span><span class="sub"><b id="k-dud">—</b> dudosos · <b id="k-des">—</b> descartados</span></div>
+      <div class="tile"><span class="lbl">Contactos en campañas programadas</span><span class="num" id="k-prog">—</span><span class="sub">Envíos desde pardeytrucking.com</span></div>
+      <div class="tile"><span class="lbl">Correos enviados</span><span class="num" id="k-envd">—</span><span class="sub">Momentum y Brevo, acumulado</span></div>
+      <div class="tile"><span class="lbl">Tasa de apertura</span><span class="num" id="k-ap">—</span><span class="sub">Inflada por iPhone y proxies de imagen</span></div>
+      <div class="tile"><span class="lbl">Tasa de rebote</span><span class="num" id="k-reb">—</span><span class="sub">Conviene por debajo del 2 %</span></div>
+      <div class="tile"><span class="lbl">Respuestas recibidas</span><span class="num" id="k-resp">—</span><span class="sub">Correos contestados a sales@</span></div>
+    </section>
+
+    <section class="grid2">
+      <article class="card">
+        <h2>Envíos programados por día</h2>
+        <p class="note">Contactos por día en Brevo. La línea marca el límite de 300 correos diarios del plan gratis.</p>
+        <div id="chart-dias"></div>
+      </article>
+      <article class="card">
+        <h2>Leads por ola de vencimiento</h2>
+        <p class="note">Resultado de la verificación de correos, por mes en que vence el seguro.</p>
+        <div class="legend"><span><i style="background:var(--bar)"></i>Listos para enviar</span><span><i style="background:var(--bar2)"></i>Dudosos</span><span><i style="background:var(--bar3)"></i>Descartados</span></div>
+        <div id="chart-olas"></div>
+      </article>
+    </section>
+
+    <article class="card">
+      <h2>Prueba A/B · ola 2</h2>
+      <p class="note">A es el correo corto en texto plano (18 nov). B es la plantilla con diseño (19 nov). Gana la que consiga más respuestas por cada 100 enviados.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Versión</th><th>Fecha</th><th class="r">Contactos</th><th class="r">Enviados</th><th class="r">Aperturas</th><th class="r">Respuestas</th><th class="r">Resp. por 100</th></tr></thead>
+        <tbody id="ab"></tbody>
+      </table></div>
+    </article>
+
+    <article class="card">
+      <h2>Todas las campañas</h2>
+      <p class="note">Brevo se actualiza automáticamente varias veces al día. Momentum es el envío de octubre, ya cerrado.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Campaña</th><th>Fecha (Miami)</th><th>Idioma</th><th>Versión</th><th>Estado</th><th class="r">Contactos</th><th class="r">Enviados</th><th class="r">Aperturas</th><th class="r">Clics</th><th class="r">Rebotes</th><th class="r">Respuestas</th></tr></thead>
+        <tbody id="camps"></tbody>
+      </table></div>
+    </article>
+
+    <footer id="foot">Datos de Brevo y Momentum.</footer>
+  </div>
+</main>
+<script>
+(function () {
+  var nf = new Intl.NumberFormat('es-ES', { useGrouping: 'always' });
+  var pf = new Intl.NumberFormat('es-ES', { style: 'percent', maximumFractionDigits: 1 });
+  var meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function fd(s) { if (!s) return '—'; var p = s.split('-'); return +p[2] + ' ' + meses[+p[1] - 1]; }
+  function n(v, f) { return v === null || v === undefined ? '—' : (f || nf.format)(v); }
+  function set(id, t) { var e = document.getElementById(id); if (e) e.textContent = t; }
+  function el(tag, attrs, text) {
+    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+  function bars(box, cats, series, colors, limit, labelFmt) {
+    box.replaceChildren();
+    var W = Math.max(280, box.clientWidth), H = 230, m = { t: 14, r: limit ? 50 : 10, b: 28, l: 40 };
+    var totals = cats.map(function (_, i) { return series.reduce(function (s, a) { return s + a[i]; }, 0); });
+    var max = Math.max(limit || 0, Math.max.apply(null, totals)) * 1.12;
+    var step = Math.pow(10, Math.floor(Math.log10(max / 4))); var tick = Math.ceil(max / 4 / step) * step;
+    var y = function (v) { return H - m.b - v / (tick * 4) * (H - m.t - m.b); };
+    var bw = (W - m.l - m.r) / cats.length, pad = bw * 0.3;
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: '100%', role: 'img' });
+    for (var t = 0; t <= 4; t++) {
+      svg.appendChild(el('line', { x1: m.l, x2: W - m.r, y1: y(t * tick), y2: y(t * tick), stroke: css('--line') }));
+      svg.appendChild(el('text', { x: m.l - 6, y: y(t * tick), 'text-anchor': 'end', 'dominant-baseline': 'middle' }, nf.format(t * tick)));
+    }
+    cats.forEach(function (c, i) {
+      var acc = 0, x = m.l + i * bw + pad / 2;
+      series.forEach(function (s, j) {
+        var v = s[i]; if (!v) return;
+        var r = el('rect', { x: x, width: bw - pad, y: y(acc + v), height: y(acc) - y(acc + v), rx: 3, fill: limit && totals[i] > limit ? css('--bad') : colors[j] });
+        r.appendChild(el('title', {}, c + ': ' + nf.format(v)));
+        svg.appendChild(r); acc += v;
+      });
+      svg.appendChild(el('text', { x: x + (bw - pad) / 2, y: y(totals[i]) - 5, 'text-anchor': 'middle' }, nf.format(totals[i])));
+      svg.appendChild(el('text', { x: x + (bw - pad) / 2, y: H - 8, 'text-anchor': 'middle' }, labelFmt ? labelFmt(c) : c));
+    });
+    if (limit) {
+      svg.appendChild(el('line', { x1: m.l, x2: W - m.r, y1: y(limit), y2: y(limit), stroke: css('--muted'), 'stroke-dasharray': '4 3' }));
+      svg.appendChild(el('text', { x: W - m.r + 4, y: y(limit), 'dominant-baseline': 'middle' }, '300/día'));
+    }
+    box.appendChild(svg);
+  }
+
+  function row(tb, cells) {
+    var tr = document.createElement('tr');
+    cells.forEach(function (c) {
+      var td = document.createElement('td');
+      if (c.r) td.className = 'r';
+      if (c.pill) { var s = document.createElement('span'); s.className = 'pill ' + c.pill; s.textContent = c.pill; td.appendChild(s); }
+      else td.textContent = c.t;
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  }
+
+  var data;
+  function draw() {
+    if (!data) return;
+    var k = data.kpis;
+    set('k-env', n(k.enviables)); set('k-dud', n(k.dudosos)); set('k-des', n(k.descartados));
+    set('k-prog', n(k.programados)); set('k-envd', n(k.enviados));
+    set('k-ap', n(k.tasa_apertura, pf.format)); set('k-reb', n(k.tasa_rebote, pf.format)); set('k-resp', n(k.respuestas));
+    var tk = document.getElementById('takeaway'); tk.replaceChildren();
+    if (data.proximo) {
+      tk.append('Próximo envío: ');
+      var b1 = document.createElement('b'); b1.textContent = fd(data.proximo.fecha); tk.append(b1);
+      tk.append(', ' + data.proximo.campanas + ' campañas con ');
+      var b2 = document.createElement('b'); b2.textContent = nf.format(data.proximo.contactos); tk.append(b2);
+      tk.append(' contactos a las 7:30 de Miami. Las respuestas deciden qué versión del correo seguimos usando.');
+    } else tk.textContent = 'No hay envíos programados ahora mismo.';
+
+    bars(document.getElementById('chart-dias'), data.por_dia.map(function (d) { return d.fecha; }),
+      [data.por_dia.map(function (d) { return d.contactos; })], [css('--bar')], 300, fd);
+    var o = data.leads_por_ola;
+    bars(document.getElementById('chart-olas'), o.map(function (d) { return d.ola; }),
+      [o.map(function (d) { return d.Enviar; }), o.map(function (d) { return d.Dudoso; }), o.map(function (d) { return d.Descartado; })],
+      [css('--bar'), css('--bar2'), css('--bar3')]);
+
+    var ab = document.getElementById('ab'); ab.replaceChildren();
+    data.ab.forEach(function (d) {
+      row(ab, [{ t: d.version }, { t: fd(d.fecha) }, { t: n(d.contactos), r: 1 }, { t: n(d.enviados), r: 1 }, { t: n(d.aperturas), r: 1 }, { t: n(d.respuestas), r: 1 },
+        { t: n(d.resp_por_100, function (v) { return v.toFixed(1); }), r: 1 }]);
+    });
+    var cb = document.getElementById('camps'); cb.replaceChildren();
+    data.campanas.forEach(function (d) {
+      row(cb, [{ t: d.campana }, { t: d.fecha ? fd(d.fecha) + ' · ' + d.hora_miami : '—' }, { t: d.idioma }, { t: d.version }, { pill: d.estado },
+        { t: n(d.contactos), r: 1 }, { t: n(d.enviados), r: 1 }, { t: n(d.aperturas), r: 1 }, { t: n(d.clics), r: 1 }, { t: n(d.rebotes), r: 1 }, { t: n(d.respuestas), r: 1 }]);
+    });
+    var when = new Date(data.actualizado);
+    set('foot', 'Actualizado el ' + when.toLocaleString('es-ES', { timeZone: 'America/New_York', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + ' (hora de Miami). Datos de Brevo y Momentum; solo cifras agregadas.');
+  }
+
+  fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (d) { data = d; draw(); })
+    .catch(function () { var t = document.getElementById('takeaway'); t.textContent = 'No se pudieron cargar los datos. Recarga la página en un momento.'; t.className = 'err'; });
+  var to; window.addEventListener('resize', function () { clearTimeout(to); to = setTimeout(draw, 150); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+})();
+</script>
+</body>
+</html>

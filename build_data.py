@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Genera data.json para el panel a partir de la respuesta de Brevo.
 
-Uso: python3 build_data.py brevo_campaigns.json
+Uso: python3 build_data.py brevo_campaigns.json [respuestas_por_lista.json]
+  respuestas_por_lista.json (opcional) = {"<id de lista Brevo>": n, "sin_asignar": n}
+  con las respuestas contadas en el Gmail puente; se asignan a la campaña que envió a esa lista.
   brevo_campaigns.json = respuesta tal cual de
   email_campaign_management_get_email_campaigns (statistics=globalStats).
 Lee además los ficheros fijos de static/ y escribe data.json.
@@ -53,12 +55,14 @@ def brevo_rows(answer):
             "rebotes": int(g.get("hardBounces") or 0) + int(g.get("softBounces") or 0) if enviado else None,
             "bajas": int(g.get("unsubscriptions") or 0) if enviado else None,
             "respuestas": None,
+            "_listas": [str(x) for x in ((c.get("recipients") or {}).get("lists") or [])],
         })
     return rows
 
 
-def main(src):
+def main(src, resp_src=None):
     answer = json.loads(Path(src).read_text(encoding="utf-8"))
+    por_lista = json.loads(Path(resp_src).read_text(encoding="utf-8")) if resp_src else {}
     leads = load("static/leads_verificados.json")
     momentum = load("static/momentum_envio1.json")
     rebotes_oct = sum(r["rebotes"] for r in load("static/rebotes_envio1.json"))
@@ -68,6 +72,9 @@ def main(src):
     for r in campanas:
         if r["campana"] in resp:
             r["respuestas"] = resp[r["campana"]]
+        listas = r.pop("_listas", [])
+        if por_lista and r["plataforma"] == "Brevo" and r["enviados"] is not None:
+            r["respuestas"] = (r["respuestas"] or 0) + sum(int(por_lista.get(l, 0)) for l in listas)
 
     s = lambda rows, k: sum((r.get(k) or 0) for r in rows)
     enviados = s(campanas, "enviados")
@@ -80,7 +87,7 @@ def main(src):
         "enviados": enviados, "aperturas": aperturas,
         "tasa_apertura": aperturas / enviados if enviados else None,
         "rebotes": rebotes, "tasa_rebote": rebotes / enviados if enviados else None,
-        "respuestas": s(campanas, "respuestas"),
+        "respuestas": s(campanas, "respuestas") + int(por_lista.get("sin_asignar", 0)),
     }
 
     prog = sorted([r for r in campanas if r["estado"] == "Programada" and r["fecha"]], key=lambda r: r["fecha"])
@@ -128,4 +135,4 @@ def main(src):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)

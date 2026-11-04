@@ -52,15 +52,38 @@
   .pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; border: 1px solid currentColor; }
   .pill.Enviada { color: var(--ok); } .pill.Programada { color: var(--warn); } .pill.Enviando { color: var(--bar); }
   footer { font-size: 12.5px; color: var(--muted); }
+  .band .wrap.top { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-start; justify-content: space-between; }
+  .band .titles { min-width: 0; flex: 1 1 420px; }
+  .status { flex: 0 1 auto; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; align-items: center; text-align: left;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 10px 14px;
+    color: #fff; font: inherit; cursor: pointer; }
+  .status:hover { background: rgba(255,255,255,.12); }
+  .status:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .status .dot { width: 12px; height: 12px; border-radius: 50%; grid-row: span 2; background: #8A97A8; box-shadow: 0 0 0 3px rgba(138,151,168,.25); }
+  .status[data-state="ok"] .dot { background: #3FCB7E; box-shadow: 0 0 0 3px rgba(63,203,126,.25), 0 0 10px #3FCB7E; }
+  .status[data-state="late"] .dot { background: #F2B53A; box-shadow: 0 0 0 3px rgba(242,181,58,.25), 0 0 10px #F2B53A; }
+  .status[data-state="down"] .dot { background: #F0564A; box-shadow: 0 0 0 3px rgba(240,86,74,.25), 0 0 10px #F0564A; }
+  .status[data-state="checking"] .dot { animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  @media (prefers-reduced-motion: reduce) { .status[data-state="checking"] .dot { animation: none; } }
+  .status .s1 { font-weight: 600; font-size: 14px; }
+  .status .s2 { font-size: 12.5px; color: #C9D6E5; }
   .err { color: var(--bad); }
 </style>
 </head>
 <body>
 <header class="band">
-  <div class="wrap">
-    <div class="eyebrow">Pardey Insurance · Transporte</div>
-    <h1>Campañas de email a transportistas</h1>
-    <p id="takeaway">Cargando datos…</p>
+  <div class="wrap top">
+    <div class="titles">
+      <div class="eyebrow">Pardey Insurance · Transporte</div>
+      <h1>Campañas de email a transportistas</h1>
+      <p id="takeaway">Cargando datos…</p>
+    </div>
+    <button class="status" id="status" type="button" data-state="checking" title="Pulsa para comprobar ahora la conexión">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="s1" id="st1">Comprobando conexión…</span>
+      <span class="s2" id="st2">Próxima actualización: —</span>
+    </button>
   </div>
 </header>
 <main>
@@ -175,7 +198,7 @@
     set('k-env', n(k.enviables)); set('k-dud', n(k.dudosos)); set('k-des', n(k.descartados));
     set('k-prog', n(k.programados)); set('k-envd', n(k.enviados));
     set('k-ap', n(k.tasa_apertura, pf.format)); set('k-reb', n(k.tasa_rebote, pf.format)); set('k-resp', n(k.respuestas));
-    var tk = document.getElementById('takeaway'); tk.replaceChildren();
+    var tk = document.getElementById('takeaway'); tk.replaceChildren(); tk.className = '';
     if (data.proximo) {
       tk.append('Próximo envío: ');
       var b1 = document.createElement('b'); b1.textContent = fd(data.proximo.fecha); tk.append(b1);
@@ -205,10 +228,44 @@
     set('foot', 'Actualizado el ' + when.toLocaleString('es-ES', { timeZone: 'America/New_York', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + ' (hora de Miami). Datos de Brevo y Momentum; solo cifras agregadas.');
   }
 
-  fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function (d) { data = d; draw(); })
-    .catch(function () { var t = document.getElementById('takeaway'); t.textContent = 'No se pudieron cargar los datos. Recarga la página en un momento.'; t.className = 'err'; });
+  // La tarea programada corre cada 3 horas a los :20 (UTC 00:20, 03:20, 06:20...).
+  var EVERY_H = 3, AT_MIN = 20;
+  function nextRun(from) {
+    var d = new Date(from); d.setUTCSeconds(0, 0); d.setUTCMinutes(AT_MIN);
+    while (d <= from || d.getUTCHours() % EVERY_H !== 0) d.setUTCHours(d.getUTCHours() + 1);
+    return d;
+  }
+  function hm(d) { return d.toLocaleTimeString('es-ES', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit' }); }
+  function ago(ms) {
+    var m = Math.round(ms / 60000);
+    if (m < 60) return 'hace ' + m + ' min';
+    var h = Math.floor(m / 60); return 'hace ' + h + ' h' + (m % 60 ? ' ' + (m % 60) + ' min' : '');
+  }
+  function status(state, l1, l2) {
+    var b = document.getElementById('status'); b.dataset.state = state;
+    set('st1', l1); set('st2', l2);
+  }
+  function check(manual) {
+    status('checking', 'Comprobando conexión…', manual ? 'Consultando la última actualización' : 'Próxima actualización: —');
+    return fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        data = d; draw();
+        var now = new Date(), last = new Date(d.actualizado), age = now - last;
+        var nxt = 'Próxima actualización: ' + hm(nextRun(now)) + ' (Miami)';
+        var tail = manual ? ' · comprobado a las ' + hm(now) : '';
+        if (age <= (EVERY_H * 60 + 30) * 60000) status('ok', 'Conexión correcta · actualizado ' + ago(age), nxt + tail);
+        else if (age <= (EVERY_H * 2 * 60 + 30) * 60000) status('late', 'Actualización con retraso · ' + ago(age), nxt + tail);
+        else status('down', 'Sin actualizar desde ' + last.toLocaleString('es-ES', { timeZone: 'America/New_York', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }), 'Revisar la conexión con Brevo o GitHub' + tail);
+      })
+      .catch(function () {
+        status('down', 'No se pudo conectar', 'Pulsa para reintentar' + (manual ? ' · ' + hm(new Date()) : ''));
+        if (!data) { var t = document.getElementById('takeaway'); t.textContent = 'No se pudieron cargar los datos. Recarga la página en un momento.'; t.className = 'err'; }
+      });
+  }
+  document.getElementById('status').addEventListener('click', function () { check(true); });
+  check(false);
+  setInterval(function () { check(false); }, 10 * 60000);
   var to; window.addEventListener('resize', function () { clearTimeout(to); to = setTimeout(draw, 150); });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
 })();

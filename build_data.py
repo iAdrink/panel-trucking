@@ -36,7 +36,8 @@ def brevo_rows(answer):
         name = c.get("name", "")
         m = re.search(r"O(\d)", name)
         idioma = "EN" if " EN " in name + " " else "ES" if " ES " in name + " " else ""
-        version = "B · Plantilla" if "B-plantilla" in name else "A · Corto" if "A-corto" in name else "Corto"
+        version = ("B · Plantilla" if "B-plantilla" in name else "A · Corto" if "A-corto" in name
+                   else "Seguimiento Momentum" if name.startswith("MOM ") else "Corto")
         when = c.get("sentDate") or c.get("scheduledAt")
         fecha = hora = ""
         if when:

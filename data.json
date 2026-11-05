@@ -1,21 +1,21 @@
 {
- "actualizado": "2026-11-05T12:21+00:00",
+ "actualizado": "2026-11-05T15:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 1534,
-  "enviados": 582,
-  "aperturas": 242,
-  "tasa_apertura": 0.41580756013745707,
+  "programados": 1484,
+  "enviados": 632,
+  "aperturas": 264,
+  "tasa_apertura": 0.4177215189873418,
   "rebotes": 12,
-  "tasa_rebote": 0.020618556701030927,
+  "tasa_rebote": 0.0189873417721519,
   "respuestas": 0
  },
  "proximo": {
-  "fecha": "2026-11-05",
+  "fecha": "2026-11-06",
   "campanas": 2,
-  "contactos": 50
+  "contactos": 100
  },
  "por_dia": [
   {
@@ -173,14 +173,14 @@
    "idioma": "EN",
    "version": "Corto",
    "fecha": "2026-11-05",
-   "hora_miami": "7:30",
+   "hora_miami": "7:33",
    "contactos": 20,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 20,
+   "aperturas": 7,
+   "clics": 0,
+   "rebotes": 0,
+   "bajas": 0,
    "respuestas": null
   },
   {
@@ -190,14 +190,14 @@
    "idioma": "ES",
    "version": "Corto",
    "fecha": "2026-11-05",
-   "hora_miami": "7:30",
+   "hora_miami": "7:32",
    "contactos": 30,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 30,
+   "aperturas": 15,
+   "clics": 1,
+   "rebotes": 0,
+   "bajas": 0,
    "respuestas": null
   },
   {

@@ -204,7 +204,8 @@
       var b1 = document.createElement('b'); b1.textContent = fd(data.proximo.fecha); tk.append(b1);
       tk.append(', ' + data.proximo.campanas + ' campañas con ');
       var b2 = document.createElement('b'); b2.textContent = nf.format(data.proximo.contactos); tk.append(b2);
-      tk.append(' contactos a las 7:30 de Miami. Las respuestas deciden qué versión del correo seguimos usando.');
+      // Los envíos salen a las 13:30 de Madrid (zona de la cuenta Brevo) = 12:30 UTC en invierno.
+      tk.append(' contactos a las ' + tri(new Date(data.proximo.fecha + 'T12:30:00Z')) + '. Las respuestas deciden qué versión del correo seguimos usando.');
     } else tk.textContent = 'No hay envíos programados ahora mismo.';
 
     bars(document.getElementById('chart-dias'), data.por_dia.map(function (d) { return d.fecha; }),
@@ -225,7 +226,7 @@
         { t: n(d.contactos), r: 1 }, { t: n(d.enviados), r: 1 }, { t: n(d.aperturas), r: 1 }, { t: n(d.clics), r: 1 }, { t: n(d.rebotes), r: 1 }, { t: n(d.respuestas), r: 1 }]);
     });
     var when = new Date(data.actualizado);
-    set('foot', 'Actualizado el ' + when.toLocaleString('es-ES', { timeZone: 'America/New_York', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + ' (hora de Miami). Datos de Brevo y Momentum; solo cifras agregadas.');
+    set('foot', 'Actualizado el ' + when.toLocaleDateString('es-ES', { timeZone: 'America/New_York', day: 'numeric', month: 'long' }) + ' a las ' + tri(when) + '. Datos de Brevo y Momentum; solo cifras agregadas.');
   }
 
   // La tarea programada corre cada 3 horas a los :20 (UTC 00:20, 03:20, 06:20...).
@@ -236,6 +237,8 @@
     return d;
   }
   function hm(d) { return d.toLocaleTimeString('es-ES', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit' }); }
+  var ZONAS = [['America/New_York', 'Miami'], ['Europe/Madrid', 'España'], ['America/Bogota', 'Colombia']];
+  function tri(d) { return ZONAS.map(function (z) { return d.toLocaleTimeString('es-ES', { timeZone: z[0], hour: '2-digit', minute: '2-digit' }) + ' ' + z[1]; }).join(' · '); }
   function ago(ms) {
     var m = Math.round(ms / 60000);
     if (m < 60) return 'hace ' + m + ' min';
@@ -252,7 +255,7 @@
       .then(function (d) {
         data = d; draw();
         var now = new Date(), last = new Date(d.actualizado), age = now - last;
-        var nxt = 'Próxima actualización: ' + hm(nextRun(now)) + ' (Miami)';
+        var nxt = 'Próxima actualización: ' + tri(nextRun(now));
         var tail = manual ? ' · comprobado a las ' + hm(now) : '';
         if (age <= (EVERY_H * 60 + 30) * 60000) status('ok', 'Conexión correcta · actualizado ' + ago(age), nxt + tail);
         else if (age <= (EVERY_H * 2 * 60 + 30) * 60000) status('late', 'Actualización con retraso · ' + ago(age), nxt + tail);

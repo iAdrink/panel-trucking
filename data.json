@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T00:21+00:00",
+ "actualizado": "2026-11-06T03:20+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
@@ -167,7 +167,7 @@
    "respuestas": 0
   },
   {
-   "campana": "CAB O1 EN L1 (5-nov)",
+   "campana": "Truck CAB O1 EN L1 (5-nov)",
    "plataforma": "Brevo",
    "ola": 1,
    "idioma": "EN",
@@ -184,7 +184,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O1 ES L1 (5-nov)",
+   "campana": "Truck CAB O1 ES L1 (5-nov)",
    "plataforma": "Brevo",
    "ola": 1,
    "idioma": "ES",
@@ -201,7 +201,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O1 EN L2 (6-nov)",
+   "campana": "Truck CAB O1 EN L2 (6-nov)",
    "plataforma": "Brevo",
    "ola": 1,
    "idioma": "EN",
@@ -218,7 +218,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O1 ES L2 (6-nov)",
+   "campana": "Truck CAB O1 ES L2 (6-nov)",
    "plataforma": "Brevo",
    "ola": 1,
    "idioma": "ES",
@@ -235,7 +235,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O1 EN L3 (9-nov)",
+   "campana": "Truck CAB O1 EN L3 (9-nov)",
    "plataforma": "Brevo",
    "ola": 1,
    "idioma": "EN",
@@ -252,7 +252,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O1 ES L3 (9-nov)",
+   "campana": "Truck CAB O1 ES L3 (9-nov)",
    "plataforma": "Brevo",
    "ola": 1,
    "idioma": "ES",
@@ -269,7 +269,7 @@
    "respuestas": null
   },
   {
-   "campana": "MOM E1 EN Nov (10-nov)",
+   "campana": "Truck MOM E1 EN Nov (10-nov)",
    "plataforma": "Brevo",
    "ola": null,
    "idioma": "EN",
@@ -286,7 +286,7 @@
    "respuestas": null
   },
   {
-   "campana": "MOM E1 ES Nov (10-nov)",
+   "campana": "Truck MOM E1 ES Nov (10-nov)",
    "plataforma": "Brevo",
    "ola": null,
    "idioma": "ES",
@@ -303,7 +303,7 @@
    "respuestas": null
   },
   {
-   "campana": "MOM E1 EN Dic (13-nov)",
+   "campana": "Truck MOM E1 EN Dic (13-nov)",
    "plataforma": "Brevo",
    "ola": null,
    "idioma": "EN",
@@ -320,7 +320,7 @@
    "respuestas": null
   },
   {
-   "campana": "MOM E1 ES Dic (13-nov)",
+   "campana": "Truck MOM E1 ES Dic (13-nov)",
    "plataforma": "Brevo",
    "ola": null,
    "idioma": "ES",
@@ -337,7 +337,7 @@
    "respuestas": null
   },
   {
-   "campana": "MOM E1 EN Ene (16-nov)",
+   "campana": "Truck MOM E1 EN Ene (16-nov)",
    "plataforma": "Brevo",
    "ola": null,
    "idioma": "EN",
@@ -354,7 +354,7 @@
    "respuestas": null
   },
   {
-   "campana": "MOM E1 ES Ene (16-nov)",
+   "campana": "Truck MOM E1 ES Ene (16-nov)",
    "plataforma": "Brevo",
    "ola": null,
    "idioma": "ES",
@@ -371,7 +371,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O2 EN L1 A-corto (18-nov)",
+   "campana": "Truck CAB O2 EN L1 A-corto (18-nov)",
    "plataforma": "Brevo",
    "ola": 2,
    "idioma": "EN",
@@ -388,7 +388,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O2 ES L1 A-corto (18-nov)",
+   "campana": "Truck CAB O2 ES L1 A-corto (18-nov)",
    "plataforma": "Brevo",
    "ola": 2,
    "idioma": "ES",
@@ -405,7 +405,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O2 EN L2 B-plantilla (19-nov)",
+   "campana": "Truck CAB O2 EN L2 B-plantilla (19-nov)",
    "plataforma": "Brevo",
    "ola": 2,
    "idioma": "EN",
@@ -422,7 +422,7 @@
    "respuestas": null
   },
   {
-   "campana": "CAB O2 ES L2 B-plantilla (19-nov)",
+   "campana": "Truck CAB O2 ES L2 B-plantilla (19-nov)",
    "plataforma": "Brevo",
    "ola": 2,
    "idioma": "ES",

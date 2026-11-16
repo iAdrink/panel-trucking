@@ -1,21 +1,21 @@
 {
- "actualizado": "2026-11-16T12:22+00:00",
+ "actualizado": "2026-11-16T18:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 832,
-  "enviados": 1434,
-  "aperturas": 824,
-  "tasa_apertura": 0.5746164574616457,
+  "programados": 696,
+  "enviados": 1570,
+  "aperturas": 904,
+  "tasa_apertura": 0.575796178343949,
   "rebotes": 19,
-  "tasa_rebote": 0.013249651324965132,
+  "tasa_rebote": 0.012101910828025478,
   "respuestas": 0
  },
  "proximo": {
-  "fecha": "2026-11-16",
+  "fecha": "2026-11-17",
   "campanas": 2,
-  "contactos": 136
+  "contactos": 150
  },
  "por_dia": [
   {
@@ -347,14 +347,14 @@
    "idioma": "EN",
    "version": "Seguimiento Momentum",
    "fecha": "2026-11-16",
-   "hora_miami": "7:30",
+   "hora_miami": "7:33",
    "contactos": 54,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 54,
+   "aperturas": 11,
+   "clics": 0,
+   "rebotes": 0,
+   "bajas": 0,
    "respuestas": null
   },
   {
@@ -364,14 +364,14 @@
    "idioma": "ES",
    "version": "Seguimiento Momentum",
    "fecha": "2026-11-16",
-   "hora_miami": "7:30",
+   "hora_miami": "7:32",
    "contactos": 82,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 82,
+   "aperturas": 69,
+   "clics": 4,
+   "rebotes": 0,
+   "bajas": 0,
    "respuestas": null
   },
   {

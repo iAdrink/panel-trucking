@@ -1,21 +1,21 @@
 {
- "actualizado": "2026-11-18T12:21+00:00",
+ "actualizado": "2026-11-18T15:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 706,
-  "enviados": 1720,
-  "aperturas": 978,
-  "tasa_apertura": 0.5686046511627907,
-  "rebotes": 19,
-  "tasa_rebote": 0.011046511627906977,
+  "programados": 406,
+  "enviados": 2020,
+  "aperturas": 1223,
+  "tasa_apertura": 0.6054455445544554,
+  "rebotes": 21,
+  "tasa_rebote": 0.010396039603960397,
   "respuestas": 0
  },
  "proximo": {
-  "fecha": "2026-11-18",
+  "fecha": "2026-11-19",
   "campanas": 2,
-  "contactos": 300
+  "contactos": 246
  },
  "por_dia": [
   {
@@ -90,10 +90,10 @@
    "version": "A · Corto",
    "fecha": "2026-11-18",
    "contactos": 300,
-   "enviados": null,
-   "aperturas": null,
+   "enviados": 300,
+   "aperturas": 243,
    "respuestas": null,
-   "resp_por_100": null
+   "resp_por_100": 0.0
   },
   {
    "version": "B · Plantilla",
@@ -287,7 +287,7 @@
    "contactos": 72,
    "estado": "Enviada",
    "enviados": 72,
-   "aperturas": 23,
+   "aperturas": 24,
    "clics": 0,
    "rebotes": 0,
    "bajas": 1,
@@ -321,7 +321,7 @@
    "contactos": 97,
    "estado": "Enviada",
    "enviados": 97,
-   "aperturas": 46,
+   "aperturas": 47,
    "clics": 5,
    "rebotes": 2,
    "bajas": 0,
@@ -419,14 +419,14 @@
    "idioma": "EN",
    "version": "A · Corto",
    "fecha": "2026-11-18",
-   "hora_miami": "7:30",
+   "hora_miami": "7:43",
    "contactos": 108,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 108,
+   "aperturas": 50,
+   "clics": 2,
+   "rebotes": 1,
+   "bajas": 0,
    "respuestas": null
   },
   {
@@ -436,14 +436,14 @@
    "idioma": "ES",
    "version": "A · Corto",
    "fecha": "2026-11-18",
-   "hora_miami": "7:30",
+   "hora_miami": "7:43",
    "contactos": 192,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 192,
+   "aperturas": 193,
+   "clics": 0,
+   "rebotes": 1,
+   "bajas": 0,
    "respuestas": null
   },
   {

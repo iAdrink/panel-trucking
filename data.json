@@ -1,13 +1,13 @@
 {
- "actualizado": "2026-11-17T21:21+00:00",
+ "actualizado": "2026-11-18T00:20+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 546,
+  "programados": 706,
   "enviados": 1720,
-  "aperturas": 973,
-  "tasa_apertura": 0.5656976744186046,
+  "aperturas": 975,
+  "tasa_apertura": 0.5668604651162791,
   "rebotes": 19,
   "tasa_rebote": 0.011046511627906977,
   "respuestas": 0
@@ -53,6 +53,10 @@
   {
    "fecha": "2026-11-19",
    "contactos": 246
+  },
+  {
+   "fecha": "2026-11-20",
+   "contactos": 160
   }
  ],
  "leads_por_ola": [
@@ -385,7 +389,7 @@
    "contactos": 60,
    "estado": "Enviada",
    "enviados": 60,
-   "aperturas": 26,
+   "aperturas": 27,
    "clics": 0,
    "rebotes": 0,
    "bajas": 0,
@@ -402,7 +406,7 @@
    "contactos": 90,
    "estado": "Enviada",
    "enviados": 90,
-   "aperturas": 30,
+   "aperturas": 31,
    "clics": 1,
    "rebotes": 0,
    "bajas": 1,
@@ -468,6 +472,40 @@
    "fecha": "2026-11-19",
    "hora_miami": "7:30",
    "contactos": 157,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck MOM EN Repesca llamados (20-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "EN",
+   "version": "Seguimiento Momentum",
+   "fecha": "2026-11-20",
+   "hora_miami": "7:30",
+   "contactos": 60,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck MOM ES Repesca llamados (20-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "ES",
+   "version": "Seguimiento Momentum",
+   "fecha": "2026-11-20",
+   "hora_miami": "7:30",
+   "contactos": 100,
    "estado": "Programada",
    "enviados": null,
    "aperturas": null,

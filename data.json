@@ -1,21 +1,21 @@
 {
- "actualizado": "2026-11-19T12:23+00:00",
+ "actualizado": "2026-11-19T15:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 406,
-  "enviados": 2020,
-  "aperturas": 1261,
-  "tasa_apertura": 0.6242574257425743,
-  "rebotes": 21,
-  "tasa_rebote": 0.010396039603960397,
+  "programados": 160,
+  "enviados": 2266,
+  "aperturas": 1313,
+  "tasa_apertura": 0.5794351279788172,
+  "rebotes": 24,
+  "tasa_rebote": 0.01059135039717564,
   "respuestas": 0
  },
  "proximo": {
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "campanas": 2,
-  "contactos": 246
+  "contactos": 160
  },
  "por_dia": [
   {
@@ -99,10 +99,10 @@
    "version": "B · Plantilla",
    "fecha": "2026-11-19",
    "contactos": 246,
-   "enviados": null,
-   "aperturas": null,
+   "enviados": 246,
+   "aperturas": 51,
    "respuestas": null,
-   "resp_por_100": null
+   "resp_por_100": 0.0
   }
  ],
  "campanas": [
@@ -372,7 +372,7 @@
    "contactos": 82,
    "estado": "Enviada",
    "enviados": 82,
-   "aperturas": 76,
+   "aperturas": 77,
    "clics": 4,
    "rebotes": 0,
    "bajas": 0,
@@ -453,14 +453,14 @@
    "idioma": "EN",
    "version": "B · Plantilla",
    "fecha": "2026-11-19",
-   "hora_miami": "7:30",
+   "hora_miami": "7:36",
    "contactos": 89,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 89,
+   "aperturas": 18,
+   "clics": 8,
+   "rebotes": 2,
+   "bajas": 0,
    "respuestas": null
   },
   {
@@ -470,14 +470,14 @@
    "idioma": "ES",
    "version": "B · Plantilla",
    "fecha": "2026-11-19",
-   "hora_miami": "7:30",
+   "hora_miami": "7:44",
    "contactos": 157,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 157,
+   "aperturas": 33,
+   "clics": 0,
+   "rebotes": 1,
+   "bajas": 1,
    "respuestas": null
   },
   {

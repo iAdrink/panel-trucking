@@ -1,22 +1,18 @@
 {
- "actualizado": "2026-11-20T12:20+00:00",
+ "actualizado": "2026-11-20T15:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 160,
-  "enviados": 2266,
-  "aperturas": 1337,
-  "tasa_apertura": 0.590026478375993,
-  "rebotes": 24,
-  "tasa_rebote": 0.01059135039717564,
+  "programados": 0,
+  "enviados": 2426,
+  "aperturas": 1362,
+  "tasa_apertura": 0.5614179719703215,
+  "rebotes": 28,
+  "tasa_rebote": 0.011541632316570486,
   "respuestas": 0
  },
- "proximo": {
-  "fecha": "2026-11-20",
-  "campanas": 2,
-  "contactos": 160
- },
+ "proximo": null,
  "por_dia": [
   {
    "fecha": "2026-11-05",
@@ -100,7 +96,7 @@
    "fecha": "2026-11-19",
    "contactos": 246,
    "enviados": 246,
-   "aperturas": 71,
+   "aperturas": 73,
    "respuestas": null,
    "resp_por_100": 0.0
   }
@@ -457,7 +453,7 @@
    "contactos": 89,
    "estado": "Enviada",
    "enviados": 89,
-   "aperturas": 21,
+   "aperturas": 23,
    "clics": 8,
    "rebotes": 2,
    "bajas": 0,
@@ -487,14 +483,14 @@
    "idioma": "EN",
    "version": "Seguimiento Momentum",
    "fecha": "2026-11-20",
-   "hora_miami": "7:30",
+   "hora_miami": "7:33",
    "contactos": 60,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 60,
+   "aperturas": 10,
+   "clics": 0,
+   "rebotes": 1,
+   "bajas": 1,
    "respuestas": null
   },
   {
@@ -504,14 +500,14 @@
    "idioma": "ES",
    "version": "Seguimiento Momentum",
    "fecha": "2026-11-20",
-   "hora_miami": "7:30",
+   "hora_miami": "7:33",
    "contactos": 100,
-   "estado": "Programada",
-   "enviados": null,
-   "aperturas": null,
-   "clics": null,
-   "rebotes": null,
-   "bajas": null,
+   "estado": "Enviada",
+   "enviados": 100,
+   "aperturas": 13,
+   "clics": 0,
+   "rebotes": 3,
+   "bajas": 0,
    "respuestas": null
   }
  ]

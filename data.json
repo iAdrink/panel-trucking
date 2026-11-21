@@ -1,18 +1,22 @@
 {
- "actualizado": "2026-11-21T00:20+00:00",
+ "actualizado": "2026-11-21T03:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
-  "programados": 0,
+  "programados": 65,
   "enviados": 2426,
-  "aperturas": 1371,
-  "tasa_apertura": 0.5651277823577906,
+  "aperturas": 1373,
+  "tasa_apertura": 0.5659521846661171,
   "rebotes": 28,
   "tasa_rebote": 0.011541632316570486,
   "respuestas": 0
  },
- "proximo": null,
+ "proximo": {
+  "fecha": "2026-11-23",
+  "campanas": 2,
+  "contactos": 25
+ },
  "por_dia": [
   {
    "fecha": "2026-11-05",
@@ -53,6 +57,18 @@
   {
    "fecha": "2026-11-20",
    "contactos": 160
+  },
+  {
+   "fecha": "2026-11-23",
+   "contactos": 25
+  },
+  {
+   "fecha": "2026-11-24",
+   "contactos": 20
+  },
+  {
+   "fecha": "2026-11-25",
+   "contactos": 20
   }
  ],
  "leads_por_ola": [
@@ -487,7 +503,7 @@
    "contactos": 60,
    "estado": "Enviada",
    "enviados": 60,
-   "aperturas": 11,
+   "aperturas": 12,
    "clics": 0,
    "rebotes": 1,
    "bajas": 1,
@@ -504,10 +520,95 @@
    "contactos": 100,
    "estado": "Enviada",
    "enviados": 100,
-   "aperturas": 18,
+   "aperturas": 19,
    "clics": 0,
    "rebotes": 3,
    "bajas": 0,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck CAB Dudosos D1 EN (23-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "EN",
+   "version": "Corto",
+   "fecha": "2026-11-23",
+   "hora_miami": "7:35",
+   "contactos": 3,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck CAB Dudosos D1 ES (23-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "ES",
+   "version": "Corto",
+   "fecha": "2026-11-23",
+   "hora_miami": "7:30",
+   "contactos": 22,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck CAB Dudosos D2 EN (24-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "EN",
+   "version": "Corto",
+   "fecha": "2026-11-24",
+   "hora_miami": "7:35",
+   "contactos": 11,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck CAB Dudosos D2 ES (24-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "ES",
+   "version": "Corto",
+   "fecha": "2026-11-24",
+   "hora_miami": "7:30",
+   "contactos": 9,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
+   "respuestas": null
+  },
+  {
+   "campana": "Truck CAB Dudosos D3 EN (25-nov)",
+   "plataforma": "Brevo",
+   "ola": null,
+   "idioma": "EN",
+   "version": "Corto",
+   "fecha": "2026-11-25",
+   "hora_miami": "7:30",
+   "contactos": 20,
+   "estado": "Programada",
+   "enviados": null,
+   "aperturas": null,
+   "clics": null,
+   "rebotes": null,
+   "bajas": null,
    "respuestas": null
   }
  ]

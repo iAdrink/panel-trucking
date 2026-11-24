@@ -1,13 +1,13 @@
 {
- "actualizado": "2026-11-24T00:21+00:00",
+ "actualizado": "2026-11-24T03:21+00:00",
  "kpis": {
   "enviables": 1934,
   "dudosos": 180,
   "descartados": 25,
   "programados": 348,
   "enviados": 2525,
-  "aperturas": 1419,
-  "tasa_apertura": 0.561980198019802,
+  "aperturas": 1420,
+  "tasa_apertura": 0.5623762376237624,
   "rebotes": 30,
   "tasa_rebote": 0.011881188118811881,
   "respuestas": 0
@@ -570,7 +570,7 @@
    "contactos": 22,
    "estado": "Enviada",
    "enviados": 22,
-   "aperturas": 11,
+   "aperturas": 12,
    "clics": 0,
    "rebotes": 1,
    "bajas": 0,
